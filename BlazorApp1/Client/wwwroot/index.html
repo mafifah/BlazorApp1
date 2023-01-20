@@ -36,12 +36,11 @@
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
     <script>
-        function tampilkanModalMenu(namaKontrol) {
+        function tampilkanModalMenu() {
+            hideNavigasi();
             let container = document.querySelector("#ModalMenuContainer");
             let modal = document.querySelector("#ModalMenuContainer #ModalMenu");
-            let navigasi = document.querySelector("#navigasi-menu");
             let header = document.querySelector("#header-app");
-            navigasi.classList.remove("fixed-bottom");
             header.classList.remove("rz-header");
             header.classList.remove("header");
             container.classList.add("active");
@@ -49,12 +48,11 @@
                 modal.classList.add("active");
             }, 1);
         }
-        function hideModalMenu(namaKontrol) {
+        function hideModalMenu() {
+            tampilkanNavigasi();
             let container = document.querySelector("#ModalMenuContainer");
             let modal = document.querySelector("#ModalMenuContainer #ModalMenu");
-            let navigasi = document.querySelector("#navigasi-menu");
             let header = document.querySelector("#header-app");
-            navigasi.classList.add("fixed-bottom");
             header.classList.add("rz-header");
             header.classList.add("header");
             modal.classList.remove("active");
@@ -62,6 +60,17 @@
                 container.classList.remove("active");
             }, 400);
         }
+        function tampilkanNavigasi() {
+            let navigasi = document.querySelector("#navigasi-menu");
+            navigasi.classList.add("fixed-bottom");
+
+        }
+        function hideNavigasi() {
+            let navigasi = document.querySelector("#navigasi-menu");
+            navigasi.classList.remove("fixed-bottom");
+
+        }
+        
     </script>
 </body>
 
